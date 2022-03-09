@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>문제 : </h1>
+  <form action="{% url 'code_test:check' %}" method="POST">
+    {% csrf_token %}
+    <label for="user">
+      성명 : 
+    </label>
+    <input label="user" type="text">
+    <label for="answer">코드 : </label>
+    <textarea name="answer" id="answer" cols="30" rows="10"></textarea>
+    <button>제출</button>
+
+  </form>
+
+
+{% endblock content %}

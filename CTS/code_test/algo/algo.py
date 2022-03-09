@@ -1,0 +1,1 @@
+"n = int(input())\nfor _ in range(n):\n    a, b = map(int, input().split())\n    print(a + b)"
