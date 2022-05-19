@@ -1,1 +1,1 @@
-"Some AwesomeCode"
+"print(1+2)"

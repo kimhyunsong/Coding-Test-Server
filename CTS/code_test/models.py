@@ -9,4 +9,5 @@ class Problem(models.Model):
 class Solution(models.Model):
     user = models.CharField(max_length=100)
     answer = models.TextField()
+    position = models.TextField()
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)

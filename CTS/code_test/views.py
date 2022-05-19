@@ -20,11 +20,6 @@ import copy
 def check(request, problem_pk):
     problem = get_object_or_404(Problem, pk=problem_pk)
     inputdata = problem.answer
-
-    temp = list(map(str, inputdata.split('\r\n')))
-    # s = request.data["answer"]
-    #     code = compile(s, "<string>", "exec")
-    #     exec(code)
     def convertExpr2Expression(Expr):
         Expr.lineno = 0
         Expr.col_offset = 0
@@ -58,6 +53,7 @@ def check(request, problem_pk):
 
         for line in lines:
             c = exec_with_return(eval(line))
+
 
         response = {
             "points": json.dumps(c)
