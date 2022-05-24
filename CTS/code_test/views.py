@@ -50,66 +50,9 @@ def check(request, problem_pk):
         f = open('code_test/algo/algo.py', 'r')
 
         lines = f.readlines()
-
-        for line in lines:
-            c = exec_with_return(eval(line))
-
+        c = exec_with_return(eval(lines[0]))
 
         response = {
             "points": json.dumps(c)
         }
-
-        #exec(lines)      
-        serializer = SolutionSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(problem=problem)
-            return Response(response, status=status.HTTP_201_CREATED)
-
-
-
-
-
-        # flag = False;
-        # for line in lines:
-
-            # if ":\\r\\n" in line:
-            #     flag = True;
-            # line = line.strip()
-            # line = line.replace("\\n","\n")
-            # line = line.replace("\\", "")
-            # if flag:
-            #     line = "    " + line.strip()
-            #     flag = False;
-            # line = line.replace(":\\r\\n", ":\n")
-            # line = line.replace("\\r\\n", "\n")
-            # line = line.replace("\\n","\n")
-            # l
-
-            # code = compile(line[1: len(line) - 1], "<string>", "exec")
-
-        
-        # line = line[1:len(line)-1]
-        
-        # def exec_code(line):
-        #     new_dict = {}
-            
-        #     code_list = list(map(str, line.split('\\n')))
-        #     exec('\n'.join(code_list), None, new_dict)
-        #     return new_dict
-            
-            
-        
-        # sys.stdin=open('code_test/algo/input.txt', "r")
-        
-        # correct = 0
-        # message = ''            
-        # exec_code(line)
-        # tc = 0
-        # if correct == tc:
-        #     message = "pass입니다."
-        # else:
-        #     message = f'틀렸습니다.테스트케이스 중 {correct}개 맞음'
-        # # code = compile(line, 'algo.py', 'eval')
-        # alert = {
-        #     'message':message,
-        # }
+        return Response(response, status=status.HTTP_201_CREATED)
