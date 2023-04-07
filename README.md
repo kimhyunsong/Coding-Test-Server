@@ -16,7 +16,7 @@
 
 
 
-- 명세에서 요구하는 JSON 형식 {user : "광주1반 김현송", "answer:  some awesome code"}
+- 명세에서 요구하는 JSON 형식 {user : "김현송", "answer:  some awesome code"}
 - serializer에서 FK 필드를 재정의 하여 구현
 
 
